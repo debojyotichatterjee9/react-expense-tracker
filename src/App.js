@@ -9,9 +9,6 @@ import './App.css';
 //   );
 // }
 
-// export default App;
-
-
 class App extends React.Component {
   render = () => (
       <div className="App">
