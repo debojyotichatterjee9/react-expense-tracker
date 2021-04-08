@@ -1,7 +1,10 @@
 import React from 'react'
-const Person = () => {
+const Person = (props) => {
     return (
-    <p>This is a external Person component...</p>
+    <div>
+        <p>This person's name is {props.name}...with random number {props.age}</p>
+        <p>{props.children}</p>
+    </div>
     )
 }
 
