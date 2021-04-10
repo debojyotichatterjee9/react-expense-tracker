@@ -4,6 +4,7 @@ const Person = (props) => {
     <div>
         <p>This person's name is {props.name}...with random number {props.number}</p>
         <p onClick={props.click}>{props.children}</p>
+        <input type="text" onChange={props.nameChange} defaultValue={props.name}/>
     </div>
     )
 }

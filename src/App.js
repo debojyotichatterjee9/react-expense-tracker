@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils';
+// import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 
 import Person from './Person/Person';
@@ -127,17 +127,41 @@ import Person from './Person/Person';
     })
   }
 
+  updateNameHandler = (event) => {
+    console.log(event)
+    const updatedPerson = this.state.persons.map(person => ({
+      name: event.target.value,
+      number: person.number
+    }));
+    this.setState({
+      persons: updatedPerson
+    })
+  }
+
     render = () => (
       <div className="App">
         <code>React App Page:</code>
         <hr />
         <button onClick={this.switchNameHandler}>Switch Names</button>
-        <Person name={this.state.persons[0].name} number={this.state.persons[0].number} />
-        <Person name={this.state.persons[1].name} number={this.state.persons[1].number} />
-        <Person name={this.state.persons[2].name} number={this.state.persons[2].number} />
+        <Person 
+        name={this.state.persons[0].name} 
+        number={this.state.persons[0].number}
+        nameChange={this.updateNameHandler}
+        />
+        <Person 
+        name={this.state.persons[1].name} 
+        number={this.state.persons[1].number} 
+        nameChange={this.updateNameHandler}
+        />
+        <Person 
+        name={this.state.persons[2].name} 
+        number={this.state.persons[2].number} 
+        nameChange={this.updateNameHandler}
+        />
         <Person 
         name={this.state.persons[3].name} number={this.state.persons[3].number}
         click={this.increaseNumberHandler.bind(this)}
+        nameChange={this.updateNameHandler}
         >Click here to increase number.</Person>
         <Person 
         name={this.state.persons[4].name} number={this.state.persons[4].number}
@@ -145,7 +169,7 @@ import Person from './Person/Person';
         >Click here to reset all numbers.</Person>
         <Person 
         name={this.state.persons[5].name} number={this.state.persons[5].number}
-        click={(event) => {console.log(event); return this.removeNameHandler("XXX")}}
+        click={() => this.removeNameHandler("XXX")}
         >Click here to remove all the names.</Person>
       </div>
       
