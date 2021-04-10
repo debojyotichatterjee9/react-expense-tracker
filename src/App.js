@@ -82,6 +82,10 @@ import Person from './Person/Person';
         {
           name: "Madeline",
           number: 35,
+        },
+        {
+          name: "Jack",
+          number: 84,
         }
       ]
     }
@@ -98,18 +102,26 @@ import Person from './Person/Person';
       name: person.name,
       number: person.number + 1
     }));
-    console.log(updatedPerson)
     this.setState({
       persons: updatedPerson
     })
   }
 
-  resetNumberHandler = (maskValue) => {
+  resetNumberHandler = (resetValue) => {
     const updatedPerson = this.state.persons.map(person => ({
       name: person.name,
-      number: maskValue
+      number: resetValue
     }));
-    console.log(updatedPerson)
+    this.setState({
+      persons: updatedPerson
+    })
+  }
+
+  removeNameHandler = (maskValue) => {
+    const updatedPerson = this.state.persons.map(person => ({
+      name: maskValue,
+      number: person.number
+    }));
     this.setState({
       persons: updatedPerson
     })
@@ -131,6 +143,10 @@ import Person from './Person/Person';
         name={this.state.persons[4].name} number={this.state.persons[4].number}
         click={this.resetNumberHandler.bind(this, 0)}
         >Click here to reset all numbers.</Person>
+        <Person 
+        name={this.state.persons[5].name} number={this.state.persons[5].number}
+        click={(event) => {console.log(event); return this.removeNameHandler("XXX")}}
+        >Click here to remove all the names.</Person>
       </div>
       
       // React.createElement('div', {className: 'App'}, React.createElement('p', null, 'This is a test string'))
