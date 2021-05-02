@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 
 import Person from './Person/Person';
+import UserInput from './UserInput/UserInput'
+import UserOutput from './UserOutput/UserOutput'
 
 // const App = props => {
 
@@ -87,7 +89,8 @@ import Person from './Person/Person';
           name: "Jack",
           number: 84,
         }
-      ]
+      ],
+      username: "fredbarner"
     }
 
   switchNameHandler = () => {
@@ -138,7 +141,18 @@ import Person from './Person/Person';
     })
   }
 
-    render = () => (
+  updateUsernameHandler = async(event) => {
+
+    await this.setState({
+      username: event.target.value
+    });
+    console.log(this.state.username)
+  }
+
+    render = () => {
+
+      return (
+
       <div className="App">
         <code>React App Page:</code>
         <hr />
@@ -166,15 +180,26 @@ import Person from './Person/Person';
         <Person 
         name={this.state.persons[4].name} number={this.state.persons[4].number}
         click={this.resetNumberHandler.bind(this, 0)}
+        nameChange={this.updateNameHandler}
         >Click here to reset all numbers.</Person>
         <Person 
         name={this.state.persons[5].name} number={this.state.persons[5].number}
         click={() => this.removeNameHandler("XXX")}
+        nameChange={this.updateNameHandler}
         >Click here to remove all the names.</Person>
+
+
+
+        <UserInput 
+        udpateUname={this.updateUsernameHandler}
+        uname={this.state.username}/>
+        <UserOutput
+        uname={this.state.username}/>
       </div>
       
       // React.createElement('div', {className: 'App'}, React.createElement('p', null, 'This is a test string'))
-    )
+      )
+    }
   }
 
   export default App;
