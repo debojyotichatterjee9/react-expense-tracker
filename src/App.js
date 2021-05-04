@@ -1,12 +1,11 @@
-// import React, { useState } from 'react';
-import React from 'react';
-import './App.css';
-
+import ExpenseItem from './components/ExpenseItem'
 
 const App = props => {
     return (
       <div className="App">
         <h2>Refreshed</h2>
+        <p>This is a sample text</p>
+        <ExpenseItem/>
       </div>
     );
   }
