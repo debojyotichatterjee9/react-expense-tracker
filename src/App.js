@@ -1,4 +1,4 @@
-import ExpenseItem from './components/ExpenseItem'
+import ExpenseItem from './components/ExpenseItem/ExpenseItem'
 
 const App = props => {
     return (
