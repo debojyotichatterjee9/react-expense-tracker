@@ -1,5 +1,5 @@
 import React from 'react';
-import Expenses from './components/Expenses/Expenses'
+import Expenses from './components/ExpenseComponents/Expenses/Expenses'
 
 
 /**

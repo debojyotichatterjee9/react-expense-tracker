@@ -1,5 +1,5 @@
 import './ExpenseItem.css';
-import Card from '../Card/Card';
+import Card from '../../UIComponents/Card/Card';
 import ExpenseDate from '../ExpenseDate/ExpenseDate';
 
 
