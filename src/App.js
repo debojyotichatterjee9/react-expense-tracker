@@ -8,6 +8,7 @@ import Expenses from './components/ExpenseComponents/Expenses/Expenses'
 
 const App = props => {
 
+
   const expenses = [
     {
       id: 'e1',
