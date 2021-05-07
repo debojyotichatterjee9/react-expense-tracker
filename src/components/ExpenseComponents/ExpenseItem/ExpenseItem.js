@@ -11,6 +11,7 @@ const ExpenseItem = props => {
     const expenseDate = data.date;
 
     const updateTitle = (data) => {
+        console.log(data)
         setData({
             id: data.id,
             title: Math.round(Math.random(100)*100),
