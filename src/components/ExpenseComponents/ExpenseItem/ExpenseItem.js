@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import './ExpenseItem.css';
 import Card from '../../UIComponents/Card/Card';
 import ExpenseDate from '../ExpenseDate/ExpenseDate';
