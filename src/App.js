@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Expenses from './components/ExpenseComponents/Expenses/Expenses'
 import NewExpense from "./components/ExpenseComponents/NewExpense/NewExpense"
 
@@ -10,35 +10,45 @@ import NewExpense from "./components/ExpenseComponents/NewExpense/NewExpense"
 const App = props => {
 
 
-  const expenses = [
-    {
-      id: 'e1',
-      title: 'Printer Paper',
-      amount: 94.12,
-      date: new Date(2020, 7, 14),
-    },
-    { 
-      id: 'e2', 
-      title: 'New TV', 
-      amount: 799.49, 
-      date: new Date(2021, 2, 12) },
-    {
-      id: 'e3',
-      title: 'Car Insurance',
-      amount: 294.67,
-      date: new Date(2021, 2, 28),
-    },
-    {
-      id: 'e4',
-      title: 'New Desk (Wooden)',
-      amount: 450,
-      date: new Date(2021, 5, 12),
-    },
-  ];
+  const [expenses, setExpenses] = useState([
+      {
+        id: 'e1',
+        title: 'Printer Paper',
+        amount: 94.12,
+        date: new Date(2020, 7, 14),
+      },
+      { 
+        id: 'e2', 
+        title: 'New TV', 
+        amount: 799.49, 
+        date: new Date(2021, 2, 12) },
+      {
+        id: 'e3',
+        title: 'Car Insurance',
+        amount: 294.67,
+        date: new Date(2021, 2, 28),
+      },
+      {
+        id: 'e4',
+        title: 'New Desk (Wooden)',
+        amount: 450,
+        date: new Date(2021, 5, 12),
+      },
+    ]);
+
+  const addExpenseHandler = expenseData => {
+    const expense = {
+      id: expenseData.id,
+      title: expenseData.titleInput,
+      amount: expenseData.amountInput,  
+      date: expenseData.dateInput
+    }
+    console.log(expense)
+  }
 
     return (
       <div className="App">
-        <NewExpense />
+        <NewExpense onAddExpense={addExpenseHandler}/>
         <Expenses expenses={expenses}/>
       </div>
     );

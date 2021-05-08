@@ -29,11 +29,27 @@ const ExpenseForm = props => {
                 ...prevState,
                 [event.target.id]: event.target.value
             }
-        })
+        });
 
     }
+
+    const formSubmitHandler = (event) => {
+        
+        event.preventDefault()
+        
+        // console.log(userInput)
+        
+        props.onCreateExpense(userInput)
+
+        setUserInput({
+        titleInput: "",
+        amountInput: "",
+        dateInput: "",
+    })
+    }
+
     return (
-            <form action="">
+            <form onSubmit={formSubmitHandler}>
                 <div className="new-expense__controls">
                     <div className="new-expense__control">
                         <label htmlFor="titleInput">Title</label>
@@ -41,6 +57,7 @@ const ExpenseForm = props => {
                             id="titleInput" 
                             placeholder="Enter a title..."
                             type="text" 
+                            value={userInput.titleInput}
                             onChange={inputChangeHandler} />
                     </div>
                     <div className="new-expense__control">
@@ -51,6 +68,7 @@ const ExpenseForm = props => {
                             type="number" 
                             min="0.01" 
                             step="0.01" 
+                            value={userInput.amountInput}
                             onChange={inputChangeHandler} />
                     </div>
                     <div className="new-expense__control">
@@ -59,6 +77,7 @@ const ExpenseForm = props => {
                             id="dateInput" 
                             type="date" 
                             min="2020-12-31" 
+                            value={userInput.dateInput}
                             onChange={inputChangeHandler}/>
                     </div>
                 </div>
