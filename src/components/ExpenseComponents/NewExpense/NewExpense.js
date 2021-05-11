@@ -14,6 +14,7 @@ const NewExpense = props => {
             id: Math.round(Math.random(100)*100)
         }
         props.onAddExpense(expenseData)
+        setExpenseFormFlag(!expenseFormFlag)
     }
 
     const formToggleHandeler = event => {
