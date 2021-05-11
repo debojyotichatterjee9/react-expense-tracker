@@ -32,6 +32,7 @@ const Expenses = props => {
             <>
                 <ExpensesFilter selected={filterYear} onYearSelection={yearFilterSelection}/>
                 <Card className="expenses">
+                    {filteredExpenses.length === 0 && <p>No expenses added for current selection. Add one to view.</p>}
                     {elemArray}
                 </Card>
             </>
