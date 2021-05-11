@@ -5,20 +5,29 @@ import ExpenseItem from '../ExpenseItem/ExpenseItem'
 import ExpensesFilter from '../ExpensesFilter/ExpensesFilter'
 
 const Expenses = props => {
-    console.log('********************************************************');
-    console.log(props)
-    const [ filterYear, setFilterYear ] = useState("2021")
-    const expenses = props.expenses
+    const [ filterYear, setFilterYear ] = useState("All")
+    // setting the filtered array
+    let filteredExpenses = []
     
-    const elemArray = expenses.map( item => {
+    if(filterYear === "All") {
+        // showing all the expenses
+        filteredExpenses = props.expenses
+    }
+    else {
+        // filtering expenses according to the year
+        filteredExpenses = props.expenses.filter(item => item.date.getFullYear().toString() === filterYear)
+    }
+
+    // creating list items to render
+    const elemArray = filteredExpenses.map( item => {
         return <ExpenseItem key={item.id} id={item.id} date={item.date} title={item.title} amount={item.amount}/>
     });
 
+    // setting the filter state value
     const yearFilterSelection = (userSelection) => {
         setFilterYear(userSelection)
-        console.log(filterYear)
     }
-
+    
         return(
             <>
                 <ExpensesFilter selected={filterYear} onYearSelection={yearFilterSelection}/>
