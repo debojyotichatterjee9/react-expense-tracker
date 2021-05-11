@@ -5,7 +5,8 @@ import ExpenseItem from '../ExpenseItem/ExpenseItem'
 import ExpensesFilter from '../ExpensesFilter/ExpensesFilter'
 
 const Expenses = props => {
-    
+    console.log('********************************************************');
+    console.log(props)
     const [ filterYear, setFilterYear ] = useState("2021")
     const expenses = props.expenses
     
