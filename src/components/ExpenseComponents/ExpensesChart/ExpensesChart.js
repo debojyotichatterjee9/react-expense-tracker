@@ -21,6 +21,10 @@ const ExpensesChart = props => {
             value: 0
         },
         {
+            label: "May",
+            value: 0
+        },
+        {
             label: "June",
             value: 0
         },
