@@ -11,7 +11,8 @@ const NewExpense = props => {
     const createExpenseHandler = userInput => {
         const expenseData = {
             ...userInput,
-            id: Math.round(Math.random(100)*100)
+            id: Math.round(Math.random(100)*100),
+            amount: parseInt(userInput.amount)
         }
         props.onAddExpense(expenseData)
         setExpenseFormFlag(!expenseFormFlag)

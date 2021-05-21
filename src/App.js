@@ -44,11 +44,9 @@ const App = props => {
       amount: parseFloat(expenseData.amountInput).toFixed(2),
       date: new Date(expenseData.dateInput)
     }
-    console.log(expense)
     setExpenses(prevState => {
       return [expense, ...prevState]
     })
-    console.log(expenses)
   }
 
   return (
